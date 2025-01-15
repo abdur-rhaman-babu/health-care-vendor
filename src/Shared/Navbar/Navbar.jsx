@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/image/vendor-logo.png";
 import { BsCart4 } from "react-icons/bs";
 const Navbar = () => {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   const navLinks = (
     <div className="lg:flex items-center">
       <li>
@@ -43,8 +43,8 @@ const Navbar = () => {
       </div>
     </div>
   );
-  return (
-    <div className="navbar bg-base-100 shadow-md fixed left-0 right-0 top-0 lg:px-16 lg:py-0">
+  return ( 
+    <div className="navbar bg-base-100 shadow-md fixed left-0 right-0 top-0 lg:px-16 lg:py-0 z-50">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -109,9 +109,12 @@ const Navbar = () => {
             </ul>
           </div>
         ) : (
-          <button className="border px-5 py-2 rounded-lg font-semibold">
-            Join Us
-          </button>
+          <Link to='/login'>
+            {" "}
+            <button className="border px-5 py-2 rounded-lg font-semibold">
+              Join Us
+            </button>
+          </Link>
         )}
       </div>
     </div>

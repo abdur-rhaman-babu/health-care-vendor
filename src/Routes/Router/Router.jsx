@@ -3,6 +3,8 @@ import Main from "../../components/Main/Main";
 import Home from "../../pages/Home/Home";
 import Shop from "../../pages/Shop/Shop";
 import Cart from "../../pages/Cart/Cart";
+import Login from "../../pages/Login/Login";
+import Register from "../../pages/Register/Register";
 
 export const router = createBrowserRouter([{
     path:'/',
@@ -19,6 +21,14 @@ export const router = createBrowserRouter([{
         {
             path:'/cart',
             element:<Cart/>
+        },
+        {
+            path:'/login',
+            element:<Login/>
+        },
+        {
+            path:'/register',
+            element:<Register/>
         }
     ]
 }])
