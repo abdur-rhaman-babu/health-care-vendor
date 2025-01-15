@@ -2,8 +2,9 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/image/vendor-logo.png";
 import { BsCart4 } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
+import useAuth from "../../hooks/useAuth";
 const Navbar = () => {
-  const isLoggedIn = false;
+  const { user } = useAuth();
   const navLinks = (
     <div className="lg:flex items-center">
       <li>
@@ -44,7 +45,7 @@ const Navbar = () => {
       </div>
     </div>
   );
-  return ( 
+  return (
     <div className="navbar bg-base-100 shadow-md fixed left-0 right-0 top-0 lg:px-16 lg:py-0 z-50">
       <div className="navbar-start">
         <div className="dropdown">
@@ -67,7 +68,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks} </ul>
       </div>
       <div className="navbar-end">
-        {isLoggedIn ? (
+        {user?.email ? (
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
@@ -77,7 +78,7 @@ const Navbar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  src={user?.photoURL}
                 />
               </div>
             </div>
@@ -97,7 +98,7 @@ const Navbar = () => {
             </ul>
           </div>
         ) : (
-          <Link to='/login'>
+          <Link to="/login">
             {" "}
             <button className="border px-5 py-2 rounded-lg font-semibold">
               Join Us
