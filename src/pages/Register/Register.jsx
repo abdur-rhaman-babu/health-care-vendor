@@ -1,13 +1,16 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 import useAuth from "./../../hooks/useAuth";
+import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const axiosPublic = useAxiosPublic();
-  const { user, setUser, createUser } = useAuth();
+  const { setUser, createUser, updataUserProfile } = useAuth();
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -24,13 +27,23 @@ const Register = () => {
       },
     });
     console.log(res.data);
+    const updateProfile = {
+        displayName: data.username,
+        photoURL: res.data.data.display_url,
+        role: data.role
+    }
     createUser(data.email, data.password)
     .then(res=> {
       console.log(res.user)
+      updataUserProfile(updateProfile)
       setUser(res.user)
+      navigate('/')
+      toast.success('Sign Up successfull')
     })
   };
   return (
+    <>
+      <Helmet><title>Healthcare || Signup</title></Helmet>
     <div className="flex items-center justify-center">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -109,6 +122,7 @@ const Register = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

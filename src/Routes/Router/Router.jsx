@@ -5,6 +5,10 @@ import Shop from "../../pages/Shop/Shop";
 import Cart from "../../pages/Cart/Cart";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
+import Dashboard from "../../pages/Dashboard/Dashboard";
+import SelllerHome from "../../pages/Dashboard/SelllerHome";
+import ManageMedicines from "../../pages/Dashboard/ManageMedicines";
+import PaymentHistory from "../../pages/Dashboard/PaymentHistory";
 
 export const router = createBrowserRouter([{
     path:'/',
@@ -31,7 +35,26 @@ export const router = createBrowserRouter([{
             element:<Register/>
         }
     ]
-}])
+},
+{
+    path:'/dashboard',
+    element:<Dashboard/>,
+    children:[
+        {
+            path:'seller-home',
+            element:<SelllerHome/>
+        },
+        {
+            path:'manage-medicine',
+            element:<ManageMedicines/>
+        },
+        {
+            path:'payment-history',
+            element:<PaymentHistory/>
+        }
+    ]
+}
+])
 
 const Router = () => {
     return (

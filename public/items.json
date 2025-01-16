@@ -1,0 +1,223 @@
+[
+    {
+      "item_name": "Paracetamol Tablet",
+      "item_generic_name": "Paracetamol",
+      "description": "Paracetamol is widely used for reducing fever and relieving mild to moderate pain, such as headaches, muscle aches, and toothaches. It works by inhibiting the production of prostaglandins in the brain, substances that cause pain and inflammation. Ideal for temporary relief of symptoms, ensuring comfort during illness.",
+      "image": "https://i.ibb.co.com/gm9vW7d/Paracetamol-Tablet.jpg",
+      "category": "Tablet",
+      "company": "ABC Pharma",
+      "item_mass_unit": "500mg",
+      "price": 1.5,
+      "discount": 5
+    },
+    {
+      "item_name": "Cough Syrup",
+      "item_generic_name": "Dextromethorphan",
+      "description": "Cough Syrup provides quick and effective relief from persistent cough and throat irritation. Its active ingredient, Dextromethorphan, works as a cough suppressant, helping reduce the urge to cough. The syrup is specially formulated to soothe and protect the throat, promoting restful sleep and faster recovery.",
+      "image": "https://i.ibb.co.com/JqhqrNd/cough-syrap.jpg",
+      "category": "Syrup",
+      "company": "XYZ Pharma",
+      "item_mass_unit": "100ml",
+      "price": 3.0,
+      "discount": 10
+    },
+    {
+      "item_name": "Vitamin C Capsule",
+      "item_generic_name": "Ascorbic Acid",
+      "description": "Vitamin C Capsules support the immune system, promoting overall health and vitality. Packed with antioxidants, they combat free radicals and oxidative stress. These capsules aid in collagen production, enhance skin health, and improve iron absorption, making them an essential supplement for daily nutritional needs.",
+      "image": "https://i.ibb.co.com/rMBZRKj/vitamine-c-capsul.jpg",
+      "category": "Capsule",
+      "company": "Wellness Inc.",
+      "item_mass_unit": "250mg",
+      "price": 0.8,
+      "discount": 0
+    },
+    {
+      "item_name": "Insulin Injection",
+      "item_generic_name": "Insulin",
+      "description": "Insulin Injection helps regulate blood sugar levels in individuals with diabetes. It effectively lowers glucose levels, preventing complications related to high blood sugar. Administered subcutaneously, it aids in maintaining normal metabolic function and supports long-term health for patients managing type 1 or type 2 diabetes.",
+      "image": "https://i.ibb.co.com/3WCJwj7/insulin.jpg",
+      "category": "Injection",
+      "company": "DiabCare Pharma",
+      "item_mass_unit": "10ml",
+      "price": 12.0,
+      "discount": 5
+    },
+    {
+      "item_name": "Antifungal Cream",
+      "item_generic_name": "Clotrimazole",
+      "description": "Antifungal Cream treats various fungal infections, such as athlete's foot, ringworm, and yeast infections. It works by inhibiting the growth of fungi, providing quick relief from itching, redness, and irritation. This cream is easy to apply and delivers targeted action for effective and soothing results.",
+      "image": "https://i.ibb.co.com/xC8KWkk/creame.jpg",
+      "category": "Cream",
+      "company": "SkinCare Solutions",
+      "item_mass_unit": "20g",
+      "price": 4.5,
+      "discount": 0
+    },
+    {
+      "item_name": "Aloe Vera Gel",
+      "item_generic_name": "Aloe Barbadensis",
+      "description": "Aloe Vera Gel soothes and hydrates the skin with its natural cooling properties. Ideal for sunburn, irritation, or dry skin, it promotes healing and rejuvenation. Enriched with vitamins and antioxidants, it supports skin repair while leaving a refreshing and non-greasy feel on application.",
+      "image": "https://i.ibb.co.com/4YLTZnJ/aloe-vera-gel.jpg",
+      "category": "Gel",
+      "company": "Nature's Essence",
+      "item_mass_unit": "50g",
+      "price": 2.5,
+      "discount": 0
+    },
+    {
+      "item_name": "Talcum Powder",
+      "item_generic_name": "Talc",
+      "description": "Talcum Powder helps keep your skin dry, fresh, and smooth throughout the day. It prevents rashes and irritation caused by excessive sweating. Lightly scented and gentle on the skin, this powder is suitable for all-day use, especially during hot and humid weather.",
+      "image": "https://i.ibb.co.com/6PKDszx/powder.jpg",
+      "category": "Powder",
+      "company": "FreshFeel",
+      "item_mass_unit": "100g",
+      "price": 1.0,
+      "discount": 0
+    },
+    {
+      "item_name": "Asthma Inhaler",
+      "item_generic_name": "Salbutamol",
+      "description": "Asthma Inhaler provides rapid relief from asthma symptoms, including shortness of breath, wheezing, and chest tightness. Salbutamol relaxes airway muscles, allowing for easier breathing. Compact and convenient, this inhaler is a trusted companion for managing sudden asthma attacks effectively.",
+      "image": "https://i.ibb.co.com/2MCFdDn/asma-inhelar.jpg",
+      "category": "Inhaler",
+      "company": "BreatheEasy Pharma",
+      "item_mass_unit": "200 doses",
+      "price": 15.0,
+      "discount": 0
+    },
+    {
+      "item_name": "Antibiotic Tablet",
+      "item_generic_name": "Amoxicillin",
+      "description": "Antibiotic Tablets are effective against bacterial infections, such as respiratory, urinary, and skin infections. Amoxicillin works by inhibiting bacterial cell wall formation, stopping the growth of harmful bacteria. It's a trusted solution for quick recovery and prevention of infection spread.",
+      "image": "https://i.ibb.co.com/ryD6k15/antibiotic-tablets.jpg",
+      "category": "Tablet",
+      "company": "MediHealth",
+      "item_mass_unit": "500mg",
+      "price": 1.2,
+      "discount": 0
+    },
+    {
+      "item_name": "Multivitamin Syrup",
+      "item_generic_name": "Multivitamins",
+      "description": "Multivitamin Syrup supports growth and development, providing essential vitamins and minerals. It helps strengthen immunity, promotes energy, and ensures overall well-being. Especially beneficial for children, this syrup is an easy-to-consume supplement for maintaining balanced nutrition and vitality every day.",
+      "image": "https://i.ibb.co.com/YdSmtQ9/multi-mineral-syrap.jpg",
+      "category": "Syrup",
+      "company": "HealthPlus",
+      "item_mass_unit": "120ml",
+      "price": 4.0,
+      "discount": 8
+    },
+    {
+        "item_name": "Pain Relief Capsule",
+        "item_generic_name": "Ibuprofen",
+        "description": "Pain Relief Capsules provide effective relief from headaches, joint pain, menstrual cramps, and muscle soreness. Ibuprofen reduces inflammation and alleviates pain by blocking certain chemical signals in the body. These capsules are a trusted option for quick and lasting comfort during mild to moderate discomfort.",
+        "image": "https://i.ibb.co.com/wsFFBSH/pain.jpg",
+        "category": "Capsule",
+        "company": "ReliefMed",
+        "item_mass_unit": "200mg",
+        "price": 0.6,
+        "discount": 0
+      },
+      {
+        "item_name": "Vitamin B12 Injection",
+        "item_generic_name": "Cyanocobalamin",
+        "description": "Vitamin B12 Injection helps treat and prevent B12 deficiency, essential for nerve health, energy production, and red blood cell formation. Administered for conditions like anemia and neurological issues, this injection ensures optimal absorption and rapid restoration of B12 levels in the body.",
+        "image": "https://i.ibb.co.com/vPpgJjQ/vitamine-B12.jpg",
+        "category": "Injection",
+        "company": "NutriCare",
+        "item_mass_unit": "5ml",
+        "price": 8.0,
+        "discount": 0
+      },
+      {
+        "item_name": "Hydrocortisone Ointment",
+        "item_generic_name": "Hydrocortisone",
+        "description": "Hydrocortisone Ointment effectively soothes itching, redness, and irritation caused by skin conditions like eczema, dermatitis, and rashes. It reduces inflammation by suppressing immune responses in affected areas, providing fast relief. Ideal for short-term treatment to restore skin comfort and health.",
+        "image": "https://i.ibb.co.com/QvhW778/ointment.jpg",
+        "category": "Ointment",
+        "company": "DermCare",
+        "item_mass_unit": "10g",
+        "price": 3.0,
+        "discount": 0
+      },
+      {
+        "item_name": "Analgesic Gel",
+        "item_generic_name": "Diclofenac",
+        "description": "Analgesic Gel offers quick relief from muscle and joint pain caused by arthritis, sprains, or sports injuries. Diclofenac penetrates deeply to reduce inflammation and alleviate pain. Its non-greasy formula ensures easy application and rapid absorption, promoting mobility and comfort.",
+        "image": "https://i.ibb.co.com/qySxRt5/analgesic-gel.jpg",
+        "category": "Gel",
+        "company": "PainAway",
+        "item_mass_unit": "30g",
+        "price": 3.5,
+        "discount": 5
+      },
+      {
+        "item_name": "Baby Powder",
+        "item_generic_name": "Corn Starch",
+        "description": "Baby Powder keeps delicate skin dry and comfortable, preventing diaper rashes and irritation. Its gentle formula, enriched with cornstarch, ensures a soothing effect while maintaining softness. Perfect for everyday use, it promotes freshness and protects your baby’s sensitive skin effectively.",
+        "image": "https://i.ibb.co.com/5LNDytj/baby-powder.jpg",
+        "category": "Powder",
+        "company": "LittleCare",
+        "item_mass_unit": "200g",
+        "price": 2.0,
+        "discount": 0
+      },
+      {
+        "item_name": "Bronchodilator Inhaler",
+        "item_generic_name": "Ipratropium Bromide",
+        "description": "Bronchodilator Inhaler is designed for effective management of COPD and asthma symptoms. Ipratropium Bromide relaxes airway muscles, improving airflow and making breathing easier. This compact inhaler is ideal for on-the-go use, ensuring relief from breathing difficulties whenever and wherever needed.",
+        "image": "https://i.ibb.co.com/b1GZ15z/Bronchodilator-Inhaler.png",
+        "category": "Inhaler",
+        "company": "AirWayMed",
+        "item_mass_unit": "150 doses",
+        "price": 18.0,
+        "discount": 5
+      },
+      {
+        "item_name": "Calcium Tablet",
+        "item_generic_name": "Calcium Carbonate",
+        "description": "Calcium Tablets are essential for maintaining strong bones and teeth. They support muscle function and prevent conditions like osteoporosis. Ideal for individuals with dietary calcium deficiencies, these tablets are a reliable way to ensure daily calcium intake for better health and well-being.",
+        "image": "https://i.ibb.co.com/qrSw4NB/Calcium-Tablet.jpg",
+        "category": "Tablet",
+        "company": "BoneStrong",
+        "item_mass_unit": "600mg",
+        "price": 0.9,
+        "discount": 0
+      },
+      {
+        "item_name": "Iron Syrup",
+        "item_generic_name": "Ferrous Sulfate",
+        "description": "Iron Syrup is a great solution for preventing and treating anemia. Ferrous sulfate replenishes iron levels in the body, enhancing energy, vitality, and oxygen transport. This syrup is particularly beneficial for pregnant women, children, and individuals with iron deficiency.",
+        "image": "https://i.ibb.co.com/DRsY0Ct/Iron-Syrup.jpg",
+        "category": "Syrup",
+        "company": "VitalityPlus",
+        "item_mass_unit": "150ml",
+        "price": 4.5,
+        "discount": 10
+      },
+      {
+        "item_name": "Cold Relief Capsule",
+        "item_generic_name": "Phenylephrine",
+        "description": "Cold Relief Capsules provide effective relief from nasal congestion, sinus pressure, and related symptoms. Phenylephrine works as a decongestant, allowing for easier breathing and reducing discomfort. These capsules are an essential addition to your medicine cabinet for tackling seasonal colds.",
+        "image": "https://i.ibb.co.com/LzDWg01/Cold-Relief-Capsule.jpg",
+        "category": "Capsule",
+        "company": "QuickRelief",
+        "item_mass_unit": "300mg",
+        "price": 0.7,
+        "discount": 0
+      },
+      {
+        "item_name": "Antiseptic Cream",
+        "item_generic_name": "Chlorhexidine",
+        "description": "Antiseptic Cream is specially formulated to prevent infections in minor cuts, wounds, and burns. Chlorhexidine kills bacteria effectively, creating a protective barrier against germs. This cream accelerates healing and ensures the affected area stays clean and healthy throughout recovery.",
+        "image": "https://i.ibb.co.com/3fd5w0j/Antiseptic-Cream.jpg",
+        "category": "Cream",
+        "company": "SafeCare",
+        "item_mass_unit": "25g",
+        "price": 3.2,
+        "discount": 0
+      }
+  ]
+  

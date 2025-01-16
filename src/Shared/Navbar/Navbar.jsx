@@ -3,8 +3,12 @@ import logo from "../../assets/image/vendor-logo.png";
 import { BsCart4 } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
+import { Tooltip } from "react-tooltip";
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user, userSignOut } = useAuth();
+  const handleSignOut = () => {
+    userSignOut();
+  };
   const navLinks = (
     <div className="lg:flex items-center">
       <li>
@@ -75,11 +79,13 @@ const Navbar = () => {
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src={user?.photoURL}
-                />
+              <div id="my-anchor-element" className="w-10 rounded-full">
+                <img referrerPolicy="no-referrer" alt="Tailwind CSS Navbar component" src={user?.photoURL} />
+              <Tooltip
+                anchorSelect="#my-anchor-element"
+                content={user?.displayName}
+                className="flex z-10"
+              />
               </div>
             </div>
             <ul
@@ -90,10 +96,10 @@ const Navbar = () => {
                 <Link>Update Profile</Link>
               </li>
               <li>
-                <Link>Dashboard</Link>
+                <Link to='/dashboard'>Dashboard</Link>
               </li>
               <li>
-                <button>Logout</button>
+                <button onClick={handleSignOut}>Logout</button>
               </li>
             </ul>
           </div>
