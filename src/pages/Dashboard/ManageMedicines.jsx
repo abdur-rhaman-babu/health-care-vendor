@@ -19,7 +19,7 @@ const ManageMedicines = () => {
   const axiosSecure = useAxiosSecure();
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
-  const [medicines] = useSellerManage()
+  const [medicines] = useSellerManage();
 
   const {
     register,
@@ -46,9 +46,9 @@ const ManageMedicines = () => {
         item_mass_unit: data.item_mass_unit,
         price: data.price,
         discount: data.discount,
-        email: user.email
+        email: user.email,
       };
-   
+
       const medicineRes = await axiosSecure.post("/medicines", medicines);
       if (medicineRes.data.insertedId) {
         toast.success(`${medicines.item_name} is added`);
@@ -76,7 +76,6 @@ const ManageMedicines = () => {
               Add Medicine
             </button>
           </div>
-          {medicines.length}
           <table className="table-auto w-full bg-white shadow rounded">
             <thead className="bg-[#058789] text-white">
               <tr>
@@ -90,15 +89,17 @@ const ManageMedicines = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b">
-                <td className="px-4 py-2">1</td>
-                <td className="px-4 py-2">Paracetamol</td>
-                <td className="px-4 py-2">Acetaminophen</td>
-                <td className="px-4 py-2">Analgesic</td>
-                <td className="px-4 py-2">XYZ Pharma</td>
-                <td className="px-4 py-2">$5</td>
-                <td className="px-4 py-2">10%</td>
-              </tr>
+              {medicines.map((item, index) => (
+                <tr key={item._id} className="border-b text-center">
+                  <td className="px-4 py-2">{index + 1}</td>
+                  <td className="px-4 py-2">{item.item_name}</td>
+                  <td className="px-4 py-2">{item.item_generic_name}</td>
+                  <td className="px-4 py-2">{item.category}</td>
+                  <td className="px-4 py-2">{item.company}</td>
+                  <td className="px-4 py-2">${item.price}</td>
+                  <td className="px-4 py-2">{item.discount}%</td>
+                </tr>
+              ))}
             </tbody>
           </table>
 
