@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, replace, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
@@ -8,6 +8,9 @@ import { Helmet } from "react-helmet-async";
 const Login = () => {
   const { signInUser, setUser } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  // console.log(location);
+  const from = location?.state?.from?.pathname || "/login";
   const {
     register,
     handleSubmit,
@@ -20,14 +23,16 @@ const Login = () => {
     signInUser(data.email, data.password).then((res) => {
       console.log(res.user);
       setUser(res.user);
-      navigate("/");
+      navigate(from, { replace: true });
       toast.success("Sign Up successfull");
     });
   };
 
   return (
     <div>
-      <Helmet><title>Healthcare || login</title></Helmet>
+      <Helmet>
+        <title>Healthcare || login</title>
+      </Helmet>
       <div className="flex items-center justify-center pt-20">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">

@@ -14,7 +14,7 @@ const Shop = () => {
         <div className="overflow-x-auto py-10">
           <table className="table border">
             {/* head */}
-            <thead>
+            <thead className="bg-[#058789] text-white">
               <tr>
                 <th>#</th>
                 <th>Name</th>
@@ -31,8 +31,8 @@ const Shop = () => {
                   <td>{item.item_name}</td>
                   <td>{item.category}</td>
                   <td>${item.price}</td>
-                  <td><button className="border p-2 text-xl text-white bg-[#05696b]"><FaShoppingCart /></button></td>
-                  <td><button className="border p-2 text-xl text-white bg-[#05696b]"><MdRemoveRedEye /></button></td>
+                  <td><button className="border p-2 text-xl text-white bg-[#058789]"><FaShoppingCart /></button></td>
+                  <td><button className="border p-2 text-xl text-white bg-[#058789]"><MdRemoveRedEye /></button></td>
                 </tr>
               ))}
             </tbody>

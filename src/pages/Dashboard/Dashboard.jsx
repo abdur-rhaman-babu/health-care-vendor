@@ -11,7 +11,7 @@ const Dashboard = () => {
         <title>Healthcare || dashboard</title>
       </Helmet>
       <div>
-        <div className="flex items-center flex-wrap bg-[#058789] md:gap-2 text-white justify-center">
+        <div className="fixed left-0 right-0 flex items-center flex-wrap bg-[#058789] md:gap-2 text-white justify-center">
           {isSeller && (
             <ul className="flex flex-wrap justify-center gap-2 py-5 text-white bg-[#058789]">
               <li>
@@ -32,7 +32,7 @@ const Dashboard = () => {
             </li>
           </ul>
         </div>
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto pt-20">
           <Outlet />
         </div>
       </div>

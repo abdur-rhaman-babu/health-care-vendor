@@ -6,9 +6,10 @@ import Cart from "../../pages/Cart/Cart";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import Dashboard from "../../pages/Dashboard/Dashboard";
-import SelllerHome from "../../pages/Dashboard/SelllerHome";
 import ManageMedicines from "../../pages/Dashboard/ManageMedicines";
 import PaymentHistory from "../../pages/Dashboard/PaymentHistory";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import SellerHome from "../../pages/Dashboard/SellerHome";
 
 export const router = createBrowserRouter([{
     path:'/',
@@ -24,7 +25,7 @@ export const router = createBrowserRouter([{
         },
         {
             path:'/cart',
-            element:<Cart/>
+            element:<PrivateRoute><Cart/></PrivateRoute>
         },
         {
             path:'/login',
@@ -38,11 +39,11 @@ export const router = createBrowserRouter([{
 },
 {
     path:'/dashboard',
-    element:<Dashboard/>,
+    element:<PrivateRoute><Dashboard/></PrivateRoute>,
     children:[
         {
             path:'seller-home',
-            element:<SelllerHome/>
+            element:<SellerHome/>
         },
         {
             path:'manage-medicine',
