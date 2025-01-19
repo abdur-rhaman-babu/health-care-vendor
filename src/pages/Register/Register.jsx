@@ -6,6 +6,8 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 import useAuth from "./../../hooks/useAuth";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { registerSchema } from "../../validation/registerFormValidation";
 
 const Register = () => {
   const axiosPublic = useAxiosPublic();
@@ -15,7 +17,9 @@ const Register = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(registerSchema)
+  });
 
   const onSubmit = async (data) => {
     // console.log(data)
@@ -68,8 +72,8 @@ const Register = () => {
                 placeholder="username"
                 className="input input-bordered"
                 {...register("username")}
-                required
-              />
+                />
+                <p className="text-red-600">{errors.username?.message}</p>
             </div>
             <div className="form-control">
               <label className="label">
@@ -80,6 +84,7 @@ const Register = () => {
                 className="file-input file-input-bordered w-full max-w-xs"
                 {...register("photo")}
               />
+              <p className="text-red-600">{errors.photo?.message}</p>
             </div>
             <div className="form-control">
               <label className="label">
@@ -90,8 +95,8 @@ const Register = () => {
                 placeholder="email"
                 className="input input-bordered"
                 {...register("email")}
-                required
               />
+              <p className="text-red-600">{errors.email?.message}</p>
             </div>
             <div className="form-control">
               <label className="label">
@@ -102,12 +107,12 @@ const Register = () => {
                 placeholder="password"
                 className="input input-bordered"
                 {...register("password")}
-                required
               />
+              <p className="text-red-600">{errors.password?.message}</p>
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text">Role</span>
               </label>
               <select
                 defaultValue="default"
@@ -121,6 +126,7 @@ const Register = () => {
                 <option value="seller">Seller</option>
               </select>
             </div>
+            <p className="text-red-600">{errors.role?.message}</p>
             <div className="form-control mt-6">
               <button className="py-3 rounded-lg bg-[#058789] hover:bg-[#05696b] text-white">
                 {loading ? (
