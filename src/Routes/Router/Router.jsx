@@ -6,10 +6,17 @@ import Cart from "../../pages/Cart/Cart";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import Dashboard from "../../pages/Dashboard/Dashboard";
-import ManageMedicines from "../../pages/Dashboard/ManageMedicines";
-import PaymentHistory from "../../pages/Dashboard/PaymentHistory";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import SellerHome from "../../pages/Dashboard/SellerHome";
+import SellerHome from "../../pages/Dashboard/Seller/SellerHome";
+import ManageMedicines from './../../pages/Dashboard/Seller/ManageMedicines';
+import PaymentHistory from './../../pages/Dashboard/Seller/PaymentHistory';
+import AdminHome from "../../pages/Dashboard/Admin/AdminHome";
+import ManageUser from "../../pages/Dashboard/Admin/ManageUser";
+import PaymentManagement from "../../pages/Dashboard/Admin/PaymentManagement";
+import SalesReport from "../../pages/Dashboard/Admin/SalesReport";
+import ManageCategory from "../../pages/Dashboard/Admin/ManageCategory";
+import ManageBannerAd from "../../pages/Dashboard/Admin/ManageBannerAd";
+
 
 export const router = createBrowserRouter([{
     path:'/',
@@ -52,6 +59,30 @@ export const router = createBrowserRouter([{
         {
             path:'payment-history',
             element:<PaymentHistory/>
+        },
+        {
+            path:'admin-home',
+            element:<AdminHome/>
+        },
+        {
+            path:'manage-user', 
+            element:<ManageUser/>
+        },
+        {
+            path:'payment-management',
+            element:<PaymentManagement/>
+        },
+        {
+            path:'sales-report',
+            element:<SalesReport/>
+        },
+        {
+            path:'manage-category',
+            element:<ManageCategory/>
+        },
+        {
+            path:'manage-banner-ad',
+            element:<ManageBannerAd/>
         }
     ]
 }

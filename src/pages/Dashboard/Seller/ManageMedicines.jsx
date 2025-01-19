@@ -4,12 +4,12 @@ import { useForm } from "react-hook-form";
 import { FaTimes } from "react-icons/fa";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
-import useAxiosSecure from "../../hooks/useAxiosSecure";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
-import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import useAuth from "../../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import useSellerManage from "../../hooks/useSellerManage";
+import useSellerManage from "../../../hooks/useSellerManage";
 
 const ManageMedicines = () => {
   const { loading, user } = useAuth();

@@ -8,8 +8,11 @@ import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "../../validation/registerFormValidation";
+import { IoEye, IoEyeOff } from "react-icons/io5";
+import { useState } from "react";
 
 const Register = () => {
+  const [showPass, setShowPass] = useState(false);
   const axiosPublic = useAxiosPublic();
   const { setUser, createUser, updataUserProfile, loading } = useAuth();
   const navigate = useNavigate();
@@ -18,7 +21,7 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(registerSchema)
+    resolver: yupResolver(registerSchema),
   });
 
   const onSubmit = async (data) => {
@@ -36,22 +39,21 @@ const Register = () => {
       photoURL: res.data.data.display_url,
       role: data.role,
     };
-    console.log(updateProfile)
+    console.log(updateProfile);
     createUser(data.email, data.password).then((res) => {
       updataUserProfile(updateProfile);
       setUser(res.user);
-      console.log(res.user)
+      console.log(res.user);
 
       const userInfo = {
         name: data.username,
         email: res.user?.email,
-        role: data.role
-      }
-      axiosPublic.post('/users', userInfo)
-      .then(res=>{
-        console.log(res.data)
+        role: data.role,
+      };
+      axiosPublic.post("/users", userInfo).then((res) => {
+        console.log(res.data);
         navigate("/");
-      })
+      });
       toast.success("Sign Up successfull");
     });
   };
@@ -72,8 +74,8 @@ const Register = () => {
                 placeholder="username"
                 className="input input-bordered"
                 {...register("username")}
-                />
-                <p className="text-red-600">{errors.username?.message}</p>
+              />
+              <p className="text-red-600">{errors.username?.message}</p>
             </div>
             <div className="form-control">
               <label className="label">
@@ -98,16 +100,25 @@ const Register = () => {
               />
               <p className="text-red-600">{errors.email?.message}</p>
             </div>
-            <div className="form-control">
+            <div className="form-control relative">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="password"
+                type={showPass ? "text" : "password"}
                 placeholder="password"
                 className="input input-bordered"
                 {...register("password")}
               />
+              <button
+                onClick={(e) => {
+                  e.preventDefault()
+                  setShowPass(!showPass);
+                }}
+                className="absolute top-12 right-2 mt-1"
+              >
+                {showPass ? <IoEye /> : <IoEyeOff />}
+              </button>
               <p className="text-red-600">{errors.password?.message}</p>
             </div>
             <div className="form-control">

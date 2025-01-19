@@ -4,8 +4,11 @@ import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const Login = () => {
+  const [showPass, setShowPass] = useState(false);
   const { signInUser, setUser } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -48,17 +51,25 @@ const Login = () => {
                 required
               />
             </div>
-            <div className="form-control">
+            <div className="form-control relative">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="password"
+                type={showPass ? "text" : "password"}
                 placeholder="password"
                 className="input input-bordered"
                 {...register("password")}
-                required
               />
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowPass(!showPass);
+                }}
+                className="absolute top-12 right-2 mt-1"
+              >
+                {showPass ? <IoEye /> : <IoEyeOff />}
+              </button>
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
