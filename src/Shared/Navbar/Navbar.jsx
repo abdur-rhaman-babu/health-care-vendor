@@ -4,8 +4,10 @@ import { BsCart4 } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 import { Tooltip } from "react-tooltip";
+import useCarts from "../../hooks/useCarts";
 const Navbar = () => {
   const { user, userSignOut } = useAuth();
+  const [carts] = useCarts();
   const handleSignOut = () => {
     userSignOut();
   };
@@ -21,7 +23,7 @@ const Navbar = () => {
         <NavLink to="/cart">
           <div className="indicator">
             <span className="absolute text-white -top-5 -right-5 bg-red-600 px-2 rounded-full">
-              0
+             {carts.length}
             </span>
             <i>
               <BsCart4 />
@@ -80,12 +82,16 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div id="my-anchor-element" className="w-10 rounded-full">
-                <img referrerPolicy="no-referrer" alt="Tailwind CSS Navbar component" src={user?.photoURL} />
-              <Tooltip
-                anchorSelect="#my-anchor-element"
-                content={user?.displayName}
-                className="flex z-10"
-              />
+                <img
+                  referrerPolicy="no-referrer"
+                  alt="Tailwind CSS Navbar component"
+                  src={user?.photoURL}
+                />
+                <Tooltip
+                  anchorSelect="#my-anchor-element"
+                  content={user?.displayName}
+                  className="flex z-10"
+                />
               </div>
             </div>
             <ul
@@ -96,7 +102,7 @@ const Navbar = () => {
                 <Link>Update Profile</Link>
               </li>
               <li>
-                <Link to='/dashboard'>Dashboard</Link>
+                <Link to="/dashboard">Dashboard</Link>
               </li>
               <li>
                 <button onClick={handleSignOut}>Logout</button>
