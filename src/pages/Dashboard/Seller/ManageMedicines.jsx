@@ -216,7 +216,7 @@ const ManageMedicines = () => {
                           Item Mass Unit
                         </label>
                         <input
-                          type="text"
+                          type="number"
                           {...register("item_mass_unit")}
                           className="w-full mt-1 border rounded px-3 py-2"
                           placeholder="Enter price per unit"

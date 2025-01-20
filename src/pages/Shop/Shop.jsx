@@ -4,12 +4,19 @@ import { MdRemoveRedEye } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useState } from "react";
+import useAuth from "../../hooks/useAuth";
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Shop = () => {
+  const { user } = useAuth();
   const [medicines, refetch] = useMedicines();
   const axiosSecure = useAxiosSecure();
   const [medicine, setMedicine] = useState({});
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const {
     price,
     item_name,
@@ -19,6 +26,7 @@ const Shop = () => {
     discount,
     company,
     category,
+    _id,
   } = medicine;
 
   const handleDisplayDetails = async (id) => {
@@ -31,6 +39,28 @@ const Shop = () => {
   const closeModal = () => {
     setIsOpenModal(false);
     setMedicine({});
+  };
+
+  const handleAddToCart = async (item) => {
+
+    const { item_name, company, price } = item;
+    if (user && user.email) {
+      const cartItem = {
+        medicineId: _id,
+        email: user.email,
+        item_name,
+        company,
+        price,
+        quantity: 0,
+      };
+      const res = await axiosSecure.post('/carts', cartItem)
+      console.log(res.data)
+      if(res.data.insertedId){
+        toast.success(`${ item_name} is add to cart`)
+      }
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
@@ -60,7 +90,10 @@ const Shop = () => {
                   <td>{item.category}</td>
                   <td>${item.price}</td>
                   <td>
-                    <button className="border p-2 text-xl text-white bg-[#058789]">
+                    <button
+                      onClick={() => handleAddToCart(item)}
+                      className="border p-2 text-xl text-white bg-[#058789]"
+                    >
                       <FaShoppingCart />
                     </button>
                   </td>
