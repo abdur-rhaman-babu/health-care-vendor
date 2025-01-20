@@ -12,7 +12,7 @@ const Login = () => {
   const { signInUser, setUser } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  // console.log(location);
+ 
   const from = location?.state?.from?.pathname || "/login";
   const {
     register,
