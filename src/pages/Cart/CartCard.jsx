@@ -9,9 +9,9 @@ const CartCard = ({ item }) => {
   const handleDeleteFromCart = async (id) => {
     const res = await axiosSecure.delete(`/cart/${id}`);
     console.log(res.data);
-    if(res.data.deletedCount > 0){
-        toast.success(`${item_name} is successfully deleted`)
-        refetch()
+    if (res.data.deletedCount > 0) {
+      toast.success(`${item_name} is successfully deleted`);
+      refetch();
     }
   };
   return (
@@ -25,13 +25,17 @@ const CartCard = ({ item }) => {
         <p className="text-lg font-bold text-[#058789]">${price.toFixed(2)}</p>
         <div className="flex items-center gap-2">
           <button
+            
             className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
             disabled={quantity <= 1}
           >
             -
           </button>
           <span>{quantity}</span>
-          <button className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">
+          <button
+           
+            className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
+          >
             +
           </button>
         </div>
