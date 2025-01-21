@@ -51,12 +51,14 @@ const Shop = () => {
         item_name,
         company,
         price,
-        quantity: 0,
+        quantity: 1,
       };
       const res = await axiosSecure.post('/carts', cartItem)
-      console.log(res.data)
+
+      toast.warning(res.data.message)
       if(res.data.insertedId){
         toast.success(`${ item_name} is add to cart`)
+        refetch()
       }
     } else {
       navigate("/login");

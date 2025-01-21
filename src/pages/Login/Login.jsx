@@ -26,8 +26,8 @@ const Login = () => {
     signInUser(data.email, data.password).then((res) => {
       console.log(res.user);
       setUser(res.user);
-      navigate(from, { replace: true });
-      toast.success("Sign Up successfull");
+      navigate('/');
+      toast.success(from);
     });
   };
 

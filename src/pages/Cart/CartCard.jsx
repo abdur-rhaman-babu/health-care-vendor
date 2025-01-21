@@ -1,18 +1,37 @@
 import { toast } from "react-toastify";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useCarts from "../../hooks/useCarts";
+import Swal from "sweetalert2";
 
 const CartCard = ({ item }) => {
   const [, refetch] = useCarts();
   const { item_name, company, price, quantity, _id } = item;
   const axiosSecure = useAxiosSecure();
   const handleDeleteFromCart = async (id) => {
-    const res = await axiosSecure.delete(`/cart/${id}`);
-    console.log(res.data);
-    if (res.data.deletedCount > 0) {
-      toast.success(`${item_name} is successfully deleted`);
-      refetch();
-    }
+  
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to delete this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const res = await axiosSecure.delete(`/cart/${id}`);
+        console.log(res.data);
+        if (res.data.deletedCount > 0) {
+          toast.success(`${item_name} is successfully deleted`);
+          Swal.fire({
+          title: "Deleted!",
+          text: `${item_name} has been deleted.`,
+          icon: "success"
+        });
+          refetch();
+        }
+      }
+    });
   };
   return (
     <div className="max-w-sm p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
