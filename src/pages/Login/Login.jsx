@@ -13,7 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
  
-  const from = location?.state?.from?.pathname || "/login";
+  const from = location?.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -26,8 +26,8 @@ const Login = () => {
     signInUser(data.email, data.password).then((res) => {
       console.log(res.user);
       setUser(res.user);
-      navigate('/');
-      toast.success(from);
+      navigate(from);
+      toast.success('login successfull');
     });
   };
 

@@ -5,9 +5,10 @@ import { FaBars, FaHome } from "react-icons/fa";
 import { MdManageAccounts, MdWorkHistory } from "react-icons/md";
 import Seller from "./Seller/Seller";
 import Admin from "./Admin/Admin";
+import useAdmin from "../../hooks/useAdmin";
 const Dashboard = () => {
   const isSeller = true;
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
   return (
     <div>
       <Helmet>
