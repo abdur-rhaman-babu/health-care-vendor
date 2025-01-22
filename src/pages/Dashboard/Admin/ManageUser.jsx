@@ -7,7 +7,7 @@ const ManageUser = () => {
   return (
     <div>
       <div className="overflow-x-auto py-10">
-        <table className="table border text-center">
+        <table className="table border text-center -z-50">
           {/* head */}
           <thead className="bg-[#058789] text-white">
             <tr>

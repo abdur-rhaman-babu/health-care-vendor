@@ -66,7 +66,7 @@ const AuthProvider = ({ children }) => {
         .then(res=>{
         
           if(res.data.token){
-            localStorage.setItem('Access Token', res.data.token)
+            localStorage.setItem('Access-token', res.data.token)
           }
         })
       } else {
@@ -78,7 +78,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       return unsubscribe();
     };
-  }, []);
+  }, [axiosPublic]);
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
