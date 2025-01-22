@@ -11,7 +11,7 @@ const SocialLogin = () => {
     signInWithGoogle()
     .then(res=>{
         setUser(res.user)
-        console.log(res.user)
+        // console.log(res.user)
         const userInfo = {
           email: res.user?.email,
           name: res.user?.displayName,
@@ -19,7 +19,7 @@ const SocialLogin = () => {
         }
         axiosPublic.post('/users', userInfo)
         .then(res=> {
-          console.log(res.data)
+          // console.log(res.data)
           navigate('/')
         })
         

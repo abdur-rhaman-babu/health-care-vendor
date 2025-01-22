@@ -7,10 +7,12 @@ import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import useCarts from "../../hooks/useCarts";
 
 const Shop = () => {
   const { user } = useAuth();
-  const [medicines, refetch] = useMedicines();
+  const [medicines] = useMedicines();
+  const [,refetch] = useCarts()
   const axiosSecure = useAxiosSecure();
   const [medicine, setMedicine] = useState({});
   const [isOpenModal, setIsOpenModal] = useState(false);

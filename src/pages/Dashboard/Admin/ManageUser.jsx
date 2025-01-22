@@ -1,7 +1,9 @@
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useUsers from "../../../hooks/useUsers";
 
 const ManageUser = () => {
   const [users] = useUsers();
+
   return (
     <div>
       <div className="overflow-x-auto py-10">
@@ -18,14 +20,14 @@ const ManageUser = () => {
           </thead>
           <tbody>
             {users.map((item, index) => (
-              <tr>
+              <tr key={item._id}>
                 <th>{index + 1}</th>
                 <td>{item.name}</td>
                 <td>{item.email}</td>
                 <td>{item.role}</td>
                 <td>
-                  <select className="select select-bordered">
-                    <option disabled selected>
+                  <select defaultValue='default'  className="select select-bordered">
+                    <option value='default' disabled>
                       Update role?
                     </option>
                     <option value="admin">Admin</option>
