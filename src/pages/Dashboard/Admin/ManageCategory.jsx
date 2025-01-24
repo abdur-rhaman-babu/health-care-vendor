@@ -11,9 +11,10 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useCategory from "../../../hooks/useCategory";
 import { MdDelete } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const ManageCategory = () => {
-  const [categories,refetch] = useCategory();
+  const [categories, refetch] = useCategory();
   const { loading } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
@@ -45,9 +46,33 @@ const ManageCategory = () => {
       const category = await axiosSecure.post("/categories", medicineCategory);
       if (category.data.insertedId) {
         toast.success(`${medicineCategory.category} is added`);
-        refetch()
+        refetch();
       }
     }
+  };
+
+  const handleDeleteCategory = async (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to delete this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const res = await axiosSecure.delete(`/category/${id}`);
+        if (res.data.deletedCount > 0) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Category has been deleted.",
+            icon: "success",
+          });
+          refetch();
+        }
+      }
+    });
   };
 
   return (
@@ -91,7 +116,7 @@ const ManageCategory = () => {
                     </button>
                   </td>
                   <td className="px-4 py-2">
-                    <button>
+                    <button onClick={() => handleDeleteCategory(item._id)}>
                       <MdDelete size={25} />
                     </button>
                   </td>
