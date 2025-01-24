@@ -2,12 +2,15 @@ import { Helmet } from "react-helmet-async";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import "../Dashboard/dashboard.css";
 import { FaBars, FaHome } from "react-icons/fa";
-import { MdManageAccounts, MdWorkHistory } from "react-icons/md";
-import Seller from "./Seller/Seller";
 import Admin from "./Admin/Admin";
 import useAdmin from "../../hooks/useAdmin";
+import useSeller from "../../hooks/useSeller";
+import Seller from "./Seller/Seller";
+import useUser from "../../hooks/useUser";
+import User from "./User/User";
 const Dashboard = () => {
-  const isSeller = true;
+  const [isUser] = useUser();
+  const [isSeller] = useSeller();
   const [isAdmin] = useAdmin();
   return (
     <div>
@@ -30,7 +33,9 @@ const Dashboard = () => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-[#058789] rounded-box z-[1] mt-3 w-52 p-2 shadow"
               >
-                {isAdmin && <Admin />}
+                {(isAdmin && <Admin />) ||
+                  (isSeller && <Seller />) ||
+                  (isUser && <User />)}
                 <hr />
                 <li>
                   <Link to="/" className="flex items-center gap-1 py-2 px-2">
@@ -45,7 +50,9 @@ const Dashboard = () => {
 
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
-              {isAdmin && <Admin />}
+              {(isAdmin && <Admin />) ||
+                (isSeller && <Seller />) ||
+                (isUser && <User />)}
             </ul>
 
             <p className="hidden md:block">||</p>

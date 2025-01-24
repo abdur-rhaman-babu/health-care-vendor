@@ -9,10 +9,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useCarts from "../../hooks/useCarts";
 
-// import ShopCard from "../../components/ShopCard/ShopCard";
 
-
-const Shop = () => {
+const ShopCard = ({item}) => {
   const [medicines] = useMedicines();
   const { user } = useAuth();
   const [, refetch] = useCarts();
@@ -207,5 +205,4 @@ const Shop = () => {
   );
 };
 
-export default Shop;
-
+export default ShopCard;

@@ -1,19 +1,120 @@
+// import { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
+// import useAxiosPublic from "../../hooks/useAxiosPublic";
+// import ShopCard from "../../components/ShopCard/ShopCard";
+// import { MdRemoveRedEye } from "react-icons/md";
+// import { FaShoppingCart } from "react-icons/fa";
+// import useHealthCategory from "../../hooks/useHealthCategory";
+
+// const HealthCategory = () => {
+//   // const [medicines] = useHealthCategory();
+//   const { category } = useParams();
+//   const axiosPublic = useAxiosPublic();
+//   const [medicines, setMedicines] = useState([]);
+//   console.log(medicines)
+
+//   useEffect(() => {
+//     axiosPublic.get(`/medicine/${category}`).then((res) => {
+//       console.log(res.data);
+//       setMedicines(res.data);
+//     });
+//   }, [category]);
+
+//   return (
+//     <div>
+//       <div>
+//         <div className="overflow-x-auto py-10">
+//           <table className="table border">
+//             <thead className="bg-[#058789] text-white">
+//               <tr>
+//                 <th>#</th>
+//                 <th>Name</th>
+//                 <th>Category</th>
+//                 <th>Price</th>
+//                 <th>Select</th>
+//                 <th>Details</th>
+//               </tr>
+//             </thead>
+//             <tbody>
+//               {medicines.map((item, index) => (
+//                 <tr key={item._id}>
+//                   <th>{index + 1}</th>
+//                   <td>{item.item_name}</td>
+//                   <td>{item.category}</td>
+//                   <td>${item.price}</td>
+//                   <td>
+//                     <button
+//                       onClick={() => handleAddToCart(item)}
+//                       className="border p-2 text-xl text-white bg-[#058789]"
+//                     >
+//                       <FaShoppingCart />
+//                     </button>
+//                   </td>
+//                   <td>
+//                     <button
+//                       onClick={() => handleDisplayDetails(item._id)}
+//                       className="border p-2 text-xl text-white bg-[#058789]"
+//                     >
+//                       <MdRemoveRedEye />
+//                     </button>
+//                   </td>
+//                 </tr>
+//               ))}
+//             </tbody>
+//             <tbody>
+//               {medicines.map((item, index) => (
+//                 <tr key={item._id}>
+//                   <th>{index + 1}</th>
+//                   <td>{item.item_name}</td>
+//                   <td>{item.category}</td>
+//                   <td>${item.price}</td>
+//                   <td>
+//                     <button
+//                       // onClick={() => handleAddToCart(item)}
+//                       className="border p-2 text-xl text-white bg-[#058789]"
+//                     >
+//                       <FaShoppingCart />
+//                     </button>
+//                   </td>
+//                   <td>
+//                     <button
+//                       // onClick={() => handleDisplayDetails(item._id)}
+//                       className="border p-2 text-xl text-white bg-[#058789]"
+//                     >
+//                       <MdRemoveRedEye />
+//                     </button>
+//                   </td>
+//                 </tr>
+//               ))}
+//             </tbody>
+//           </table>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default HealthCategory;
+
 import { Helmet } from "react-helmet-async";
 import useMedicines from "../../hooks/useMedicines";
 import { MdRemoveRedEye } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import useCarts from "../../hooks/useCarts";
+import useHealthCategory from "../../hooks/useHealthCategory";
 
 // import ShopCard from "../../components/ShopCard/ShopCard";
 
 
-const Shop = () => {
-  const [medicines] = useMedicines();
+const HealthCategory = () => {
+  const [medicines] = useHealthCategory();
+  console.log(medicines)
+  const { category: categories } = useParams();
   const { user } = useAuth();
   const [, refetch] = useCarts();
   const axiosSecure = useAxiosSecure();
@@ -21,6 +122,17 @@ const Shop = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  // const axiosPublic = useAxiosPublic();
+  // const [medicines, setMedicines] = useState([]);
+  // console.log(medicines)
+
+  // useEffect(() => {
+  //   axiosSecure.get(`/medicine/${categories}`).then((res) => {
+  //     console.log(res.data);
+  //     setMedicines(res.data);
+  //   });
+  // }, [categories]);
 
   const {
     price,
@@ -207,5 +319,6 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+export default HealthCategory;
+
 

@@ -16,6 +16,9 @@ import PaymentManagement from "../../pages/Dashboard/Admin/PaymentManagement";
 import SalesReport from "../../pages/Dashboard/Admin/SalesReport";
 import ManageCategory from "../../pages/Dashboard/Admin/ManageCategory";
 import ManageBannerAd from "../../pages/Dashboard/Admin/ManageBannerAd";
+import UserPaymentHistory from "../../pages/Dashboard/User/UserPaymentHistory";
+import HealthCategory from "../../pages/Home/HealthCategory";
+import AdminRoute from "../AdminRoute/AdminRoute";
 
 
 export const router = createBrowserRouter([{
@@ -29,6 +32,10 @@ export const router = createBrowserRouter([{
         {
             path:'/shop',
             element:<Shop/>
+        },
+        {
+            path:'/shop/:category',
+            element:<HealthCategory/>
         },
         {
             path:'/cart',
@@ -66,7 +73,7 @@ export const router = createBrowserRouter([{
         },
         {
             path:'manage-user', 
-            element:<ManageUser/>
+            element:<AdminRoute><ManageUser/></AdminRoute>
         },
         {
             path:'payment-management',
@@ -83,6 +90,10 @@ export const router = createBrowserRouter([{
         {
             path:'manage-banner-ad',
             element:<ManageBannerAd/>
+        },
+        {
+            path:'user-payment-history',
+            element:<UserPaymentHistory/>
         }
     ]
 }

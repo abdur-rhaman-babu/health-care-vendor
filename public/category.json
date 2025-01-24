@@ -1,0 +1,48 @@
+[
+    {
+      "category": "Injection",
+      "image": "https://i.ibb.co.com/P9QzXXb/injection.png",
+      "medicineCount": 0
+    },
+    {
+      "category": "Cream",
+      "image": "https://i.ibb.co.com/MSjwLNF/cream.png",
+      "medicineCount": 0
+    },
+    {
+      "category": "Tablet",
+      "image": "https://i.ibb.co.com/71snm95/tablet.png",
+      "medicineCount": 0
+    },
+    {
+      "category": "Syrup",
+      "image": "https://i.ibb.co.com/7RGwTsm/syrup.png",
+      "medicineCount": 0
+    },
+    {
+      "category": "Powder",
+      "image": "https://i.ibb.co.com/FsCZBkL/powder.png",
+      "medicineCount": 0
+    },
+    {
+      "category": "Capsule",
+      "image": "https://i.ibb.co.com/9g1zz4J/capsule.jpg",
+      "medicineCount": 0
+    },
+    {
+      "category": "Gel",
+      "image": "https://i.ibb.co.com/Gk6Z1kR/gel.png",
+      "medicineCount": 0
+    },
+    {
+      "category": "Ointment",
+      "image": "https://i.ibb.co.com/XYXG2s4/oinment.png",
+      "medicineCount": 0
+    },
+    {
+      "category": "Inhaler",
+      "image": "https://i.ibb.co.com/RY128B0/inhaler.png",
+      "medicineCount": 0
+    }
+  ]
+  

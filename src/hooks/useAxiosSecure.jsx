@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://healthcare-server-wheat.vercel.app",
 });
 
 const useAxiosSecure = () => {
@@ -30,7 +30,7 @@ const useAxiosSecure = () => {
     },
     async (error) => {
       const status = error.response.status;
-      console.log("Status error in the interceptors", status);
+      // console.log("Status error in the interceptors", status);
 
       if (status === 401 || status === 403) {
         await userSignOut();
