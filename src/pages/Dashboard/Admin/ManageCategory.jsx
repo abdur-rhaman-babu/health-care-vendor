@@ -13,14 +13,13 @@ import useCategory from "../../../hooks/useCategory";
 import { MdDelete } from "react-icons/md";
 
 const ManageCategory = () => {
+  const [categories,refetch] = useCategory();
   const { loading } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
   const axiosSecure = useAxiosSecure();
   const axiosPublic = useAxiosPublic();
-  const navigate = useNavigate();
-  const [categories] = useCategory()
 
   const {
     register,
@@ -29,6 +28,7 @@ const ManageCategory = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    console.log(data);
     const imageFile = { image: data.image[0] };
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: {
@@ -37,15 +37,15 @@ const ManageCategory = () => {
     });
 
     if (res.data.success) {
-      const users = {
+      const medicineCategory = {
         category: data.category,
         image: res.data.data.display_url,
       };
 
-      const medicineRes = await axiosSecure.post("/users", users);
-      if (medicineRes.data.insertedId) {
-        toast.success(`${users.item_name} is added`);
-        navigate("/dashboard/seller-home");
+      const category = await axiosSecure.post("/categories", medicineCategory);
+      if (category.data.insertedId) {
+        toast.success(`${medicineCategory.category} is added`);
+        refetch()
       }
     }
   };
@@ -57,9 +57,7 @@ const ManageCategory = () => {
       </Helmet>
       <div className="bg-gray-100 min-h-screen p-5">
         <div className="container mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-6">
-            All Category
-          </h2>
+          <h2 className="text-2xl font-bold text-center mb-6">All Category</h2>
           <div className="flex justify-between items-center mb-6">
             <h4 className="text-lg font-semibold">Your Medicines</h4>
             <button
@@ -83,10 +81,20 @@ const ManageCategory = () => {
               {categories.map((item, index) => (
                 <tr key={item._id} className="border-b text-center">
                   <td className="px-4 py-2">{index + 1}</td>
-                  <td className="px-4 py-2 flex justify-center"><img className="h-14 w-14" src={item.image} alt="" /></td>
+                  <td className="px-4 py-2 flex justify-center">
+                    <img className="h-14 w-14" src={item.image} alt="" />
+                  </td>
                   <td className="px-4 py-2">{item.category}</td>
-                  <td className="px-4 py-2"><button><FaEdit size={25}/></button></td>
-                  <td className="px-4 py-2"><button><MdDelete size={25}/></button></td>
+                  <td className="px-4 py-2">
+                    <button>
+                      <FaEdit size={25} />
+                    </button>
+                  </td>
+                  <td className="px-4 py-2">
+                    <button>
+                      <MdDelete size={25} />
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>

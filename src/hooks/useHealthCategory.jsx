@@ -6,14 +6,14 @@ import useAxiosPublic from "./useAxiosPublic";
 const useHealthCategory = () => {
    const {category} = useParams()
    const axiosPublic = useAxiosPublic();
-   const {data: medicines=[]} = useQuery({
+   const {data: medicines=[], refetch} = useQuery({
         queryKey:['medicines', category],
         queryFn: async ()=>{
            const res = await axiosPublic.get(`/medicine/${category}`)
            return res.data
         },
    })
-   return [medicines]
+   return [medicines, refetch]
 };
 
 export default useHealthCategory;
