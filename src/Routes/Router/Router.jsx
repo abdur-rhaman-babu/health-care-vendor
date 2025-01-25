@@ -19,6 +19,7 @@ import ManageBannerAd from "../../pages/Dashboard/Admin/ManageBannerAd";
 import UserPaymentHistory from "../../pages/Dashboard/User/UserPaymentHistory";
 import HealthCategory from "../../pages/Home/HealthCategory";
 import AdminRoute from "../AdminRoute/AdminRoute";
+import UpdateCategory from "../../pages/Dashboard/Admin/UpdateCategory";
 
 
 export const router = createBrowserRouter([{
@@ -85,7 +86,11 @@ export const router = createBrowserRouter([{
         },
         {
             path:'manage-category',
-            element:<ManageCategory/>
+            element:<AdminRoute><ManageCategory/></AdminRoute>
+        },
+        {
+            path:'update/:id',
+            element:<AdminRoute><UpdateCategory/></AdminRoute>
         },
         {
             path:'manage-banner-ad',

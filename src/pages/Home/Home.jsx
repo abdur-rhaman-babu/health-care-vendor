@@ -7,7 +7,6 @@ const Home = () => {
       <Helmet>
         <title>Healthcare || Home</title>
       </Helmet>
-      <h1>This is home page</h1>
       <MedicineCategory/>
     </div>
   );

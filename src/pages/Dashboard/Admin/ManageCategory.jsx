@@ -7,7 +7,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAuth from "../../../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import useCategory from "../../../hooks/useCategory";
 import { MdDelete } from "react-icons/md";
@@ -75,6 +75,7 @@ const ManageCategory = () => {
     });
   };
 
+ 
   return (
     <>
       <Helmet>
@@ -111,9 +112,11 @@ const ManageCategory = () => {
                   </td>
                   <td className="px-4 py-2">{item.category}</td>
                   <td className="px-4 py-2">
-                    <button>
-                      <FaEdit size={25} />
-                    </button>
+                    <Link to={`/dashboard/update/${item._id}`}>
+                      <button>
+                        <FaEdit size={25} />
+                      </button>
+                    </Link>
                   </td>
                   <td className="px-4 py-2">
                     <button onClick={() => handleDeleteCategory(item._id)}>
