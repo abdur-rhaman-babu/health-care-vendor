@@ -1,4 +1,3 @@
-import { key } from "localforage";
 import useCategory from "../../hooks/useCategory";
 import { Link } from "react-router-dom";
 
@@ -7,7 +6,7 @@ const MedicineCategory = () => {
   const [categories] = useCategory();
   return (
     <div>
-
+      <h1 className="my-5 text-center text-2xl font-bold">Medicine Category</h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
         {categories.map((item) => (
           <div key={item._id}>

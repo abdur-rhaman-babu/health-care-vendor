@@ -14,13 +14,13 @@ const Footer = () => {
       <nav>
         <h6 className="footer-title">Social</h6>
         <div className="grid grid-flow-col gap-4">
-          <a>
+          <a href='https://x.com/?lang=en'>
             <FaTwitter size={25}/>
           </a>
-          <a>
+          <a href='https://www.youtube.com/'>
            <FaYoutube size={25}/>
           </a>
-          <a>
+          <a href='https://www.facebook.com/'>
             <FaFacebook size={25}/>
           </a>
         </div>
