@@ -20,6 +20,7 @@ import UserPaymentHistory from "../../pages/Dashboard/User/UserPaymentHistory";
 import HealthCategory from "../../pages/Home/HealthCategory";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import UpdateCategory from "../../pages/Dashboard/Admin/UpdateCategory";
+import Payment from "../../pages/Cart/Payment";
 
 
 export const router = createBrowserRouter([{
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([{
         {
             path:'seller-home',
             element:<SellerHome/>
+        },
+        {
+            path:'payment',
+            element:<Payment/>
         },
         {
             path:'manage-medicine',

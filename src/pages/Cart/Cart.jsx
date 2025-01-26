@@ -1,8 +1,10 @@
-import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useCarts from "../../hooks/useCarts";
 import CartCard from "./CartCard";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+
 const Cart = () => {
   const [carts, refetch] = useCarts();
   const axiosSecure = useAxiosSecure();
@@ -35,6 +37,10 @@ const Cart = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Healthcare || cart</title>
+      </Helmet>
+
       <div className="md:flex justify-between items-center">
         <button
           onClick={handleClearAllItem}
@@ -44,12 +50,17 @@ const Cart = () => {
         </button>
         <p className="font-bold text-xl">Total: {carts.length}</p>
         <p className="font-bold text-xl">Total Price: ${totalPrice}</p>
-        <button
-          onClick={handleClearAllItem}
-          className="p-2 bg-[#058789] font-bold text-xl text-white"
-        >
-          Pay
-        </button>
+        {carts.length > 0 ? (
+          <Link to="/dashboard/payment">
+            <button className="p-2 bg-[#058789] font-bold text-xl text-white">
+              Pay
+            </button>
+          </Link>
+        ) : (
+          <button className="p-2 bg-[#058789] font-bold text-xl text-white">
+            Pay
+          </button>
+        )}
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 py-10">
         {carts.map((item) => (
