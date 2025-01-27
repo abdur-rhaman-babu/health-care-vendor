@@ -1,7 +1,6 @@
 import useCategory from "../../hooks/useCategory";
 import { Link } from "react-router-dom";
 
-
 const MedicineCategory = () => {
   const [categories] = useCategory();
   return (

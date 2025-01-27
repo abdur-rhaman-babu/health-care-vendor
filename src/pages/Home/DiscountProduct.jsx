@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -11,13 +10,10 @@ import useMedicines from "../../hooks/useMedicines";
 
 const DiscountProduct = () => {
   const [medicines] = useMedicines();
-  //   console.log(medicines);
-
   const products = medicines.filter((item) => item.discount > 0);
-  // console.log(products)
 
   return (
-    <div className="p-6">
+    <div className="p-3 py-5">
       <h2 className="text-2xl font-bold mb-6 text-center">Discount Products</h2>
       <Swiper
         slidesPerView={3}
@@ -31,9 +27,9 @@ const DiscountProduct = () => {
         {products.map((product) => (
           <SwiperSlide
             key={product._id}
-            className="bg-white rounded-xl shadow-lg p-4"
+            className="bg-white rounded-lg shadow-lg"
           >
-            <div className="bg-white rounded-xl shadow-lg p-4 h-[400px]">
+            <div className="bg-white rounded-lg border shadow-lg p-4 h-[400px]">
               <img
                 src={product.image}
                 alt={product.item_name}

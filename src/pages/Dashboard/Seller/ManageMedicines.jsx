@@ -18,13 +18,13 @@ const ManageMedicines = () => {
   const closeModal = () => setIsModalOpen(false);
   const axiosSecure = useAxiosSecure();
   const axiosPublic = useAxiosPublic();
-  const navigate = useNavigate();
-  const [medicines] = useSellerManage();
+  const [medicines, refetch, isLoading] = useSellerManage();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -44,15 +44,17 @@ const ManageMedicines = () => {
         category: data.category,
         company: data.company,
         item_mass_unit: data.item_mass_unit,
-        price: data.price,
-        discount: data.discount,
+        price: parseFloat(data.price),
+        discount: parseFloat(data.discount),
         email: user.email,
       };
+  
 
       const medicineRes = await axiosSecure.post("/medicines", medicines);
       if (medicineRes.data.insertedId) {
         toast.success(`${medicines.item_name} is added`);
-        navigate("/dashboard/seller-home");
+        refetch()
+        reset()
       }
     }
   };
@@ -216,7 +218,7 @@ const ManageMedicines = () => {
                           Item Mass Unit
                         </label>
                         <input
-                          type="number"
+                          type="text"
                           {...register("item_mass_unit")}
                           className="w-full mt-1 border rounded px-3 py-2"
                           placeholder="Enter price per unit"
@@ -255,11 +257,12 @@ const ManageMedicines = () => {
                       type="submit"
                       className="w-full bg-[#058789] text-white py-2 rounded shadow hover:bg-[#05696B]"
                     >
-                      {loading ? (
+                      {isLoading ? (
                         <span className="loading loading-spinner loading-md"></span>
                       ) : (
                         "Add Medicine"
                       )}
+                      
                     </button>
                   </form>
                 </div>

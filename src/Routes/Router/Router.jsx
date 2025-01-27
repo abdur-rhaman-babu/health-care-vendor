@@ -21,6 +21,7 @@ import HealthCategory from "../../pages/Home/HealthCategory";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import UpdateCategory from "../../pages/Dashboard/Admin/UpdateCategory";
 import Payment from "../../pages/Cart/Payment";
+import CategoryDetails from "../../pages/Home/CategoryDetails";
 
 
 export const router = createBrowserRouter([{
@@ -109,12 +110,3 @@ export const router = createBrowserRouter([{
 }
 ])
 
-const Router = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
-
-export default Router;

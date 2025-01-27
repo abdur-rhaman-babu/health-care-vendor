@@ -22,9 +22,9 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     signInUser(data.email, data.password).then((res) => {
-      console.log(res.user);
+      // console.log(res.user);
       setUser(res.user);
       navigate(from);
       toast.success('login successfull');
