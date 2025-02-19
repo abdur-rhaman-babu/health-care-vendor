@@ -11,11 +11,13 @@ const Home = () => {
       <Helmet>
         <title>Healthcare || Home</title>
       </Helmet>
-      <Banner/>
-      <MedicineCategory/>
-      <DiscountProduct/>
-      <HealthCareService/>
-      <Contact/>
+      <Banner />
+      <div className="container">
+        <MedicineCategory />
+        <DiscountProduct />
+        <HealthCareService />
+        <Contact />
+      </div>
     </div>
   );
 };

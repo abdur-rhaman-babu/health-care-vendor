@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <div>
       <Navbar />
-      <div className="mt-20 max-w-7xl mx-auto min-h-[64vh]">
+      <div className="mt-20 min-h-[64vh] bg-[#f3f7f7]">
         <Outlet />
       </div>
       <Footer/>
