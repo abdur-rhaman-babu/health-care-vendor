@@ -10,7 +10,7 @@ const MedicineCategory = () => {
         {categories.map((item) => (
           <div key={item._id}>
             <Link to={`/shop/${item.category}`}>
-              <div className="flex items-center gap-2 border p-2 rounded-lg cursor-pointer">
+              <div className="flex items-center gap-2 border p-2 rounded-lg cursor-pointer bg-white">
                 <div>
                   <img className="h-14 w-14" src={item.image} alt="" />
                 </div>
