@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const [carts, refetch] = useCarts();
   const axiosSecure = useAxiosSecure();
+  
   const handleClearAllItem = async () => {
     Swal.fire({
       title: "Are you sure?",
@@ -20,11 +21,10 @@ const Cart = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         const res = await axiosSecure.delete("/carts");
-        // console.log(res.data)
         if (res.data.deletedCount > 0) {
           Swal.fire({
             title: "Cleared!",
-            text: "Clear all data.",
+            text: "All items have been removed.",
             icon: "success",
           });
           refetch();
@@ -36,33 +36,31 @@ const Cart = () => {
   const totalPrice = carts.reduce((acc, curr) => acc + curr.price, 0);
 
   return (
-    <div>
+    <div className="lg:container px-2">
       <Helmet>
-        <title>Healthcare || cart</title>
+        <title>Healthcare || Cart</title>
       </Helmet>
 
-      <div className="md:flex justify-between items-center">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4 p-4 rounded-lg bg-white">
         <button
           onClick={handleClearAllItem}
-          className="p-2 bg-[#ef4444] font-bold text-xl text-white"
+          className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-bold text-lg rounded-md transition duration-300"
         >
           Clear all data
         </button>
-        <p className="font-bold text-xl">Total: {carts.length}</p>
-        <p className="font-bold text-xl">Total Price: ${totalPrice}</p>
-        {carts.length > 0 ? (
-          <Link to="/dashboard/payment">
-            <button className="p-2 bg-[#058789] font-bold text-xl text-white">
-              Pay
-            </button>
-          </Link>
-        ) : (
-          <button className="p-2 bg-[#058789] font-bold text-xl text-white">
+        <p className="font-bold text-lg">Total Items: {carts.length}</p>
+        <p className="font-bold text-lg">Total Price: ${totalPrice.toFixed(2)}</p>
+        <Link to={carts.length > 0 ? "/dashboard/payment" : "#"}>
+          <button
+            className={`px-4 py-2 font-bold text-lg text-white rounded-md transition duration-300 ${carts.length > 0 ? "bg-teal-600 hover:bg-teal-700" : "bg-gray-400 cursor-not-allowed"}`}
+            disabled={carts.length === 0}
+          >
             Pay
           </button>
-        )}
+        </Link>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 py-10">
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-10">
         {carts.map((item) => (
           <CartCard key={item._id} item={item} />
         ))}

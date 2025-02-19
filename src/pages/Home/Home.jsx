@@ -12,7 +12,7 @@ const Home = () => {
         <title>Healthcare || Home</title>
       </Helmet>
       <Banner />
-      <div className="container">
+      <div className="lg:container px-2">
         <MedicineCategory />
         <DiscountProduct />
         <HealthCareService />

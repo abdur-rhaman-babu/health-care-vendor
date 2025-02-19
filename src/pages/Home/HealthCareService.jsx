@@ -8,7 +8,7 @@ const HealthCareService = () => {
         Health Care Service
       </h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 my-5">
-        <div className="flex items-center gap-2 shadow-lg p-3 rounded-lg">
+        <div className="flex items-center gap-2 p-3 rounded-lg bg-white">
           <div className="bg-[#97EAEB] p-3 rounded-lg">
             <i>
               <CiMonitor size={35} />
@@ -23,7 +23,7 @@ const HealthCareService = () => {
             <p className="font-semibold text-xl">More Details →</p>
           </div>
         </div>
-        <div className="flex items-center gap-2 shadow-lg p-3 rounded-lg">
+        <div className="flex items-center gap-2 p-3 rounded-lg bg-white">
           <div className="bg-[#dd97eb] p-3 rounded-lg">
             <i>
               <FaCapsules size={35} />
@@ -38,7 +38,7 @@ const HealthCareService = () => {
             <p className="font-semibold text-xl">More Details →</p>
           </div>
         </div>
-        <div className="flex items-center gap-2 shadow-lg p-3 rounded-lg">
+        <div className="flex items-center gap-2 p-3 rounded-lg bg-white">
           <div className="bg-[#ae97eb] p-3 rounded-lg">
             <i>
               <CiMedicalCase size={35} />
@@ -54,7 +54,7 @@ const HealthCareService = () => {
             <p className="font-semibold text-xl">More Details →</p>
           </div>
         </div>
-        <div className="flex items-center gap-2 shadow-lg p-3 rounded-lg">
+        <div className="flex items-center gap-2 p-3 rounded-lg bg-white">
           <div className="bg-[#eba497] p-3 rounded-lg">
             <i>
               <CiStethoscope size={35} />
@@ -69,7 +69,7 @@ const HealthCareService = () => {
             <p className="font-semibold text-xl">More Details →</p>
           </div>
         </div>
-        <div className="flex items-center gap-2 shadow-lg p-3 rounded-lg">
+        <div className="flex items-center gap-2 p-3 rounded-lg bg-white">
           <div className="bg-[#dd5151] p-3 rounded-lg">
             <i>
               <FaDolly size={35} />
@@ -84,7 +84,7 @@ const HealthCareService = () => {
             <p className="font-semibold text-xl">More Details →</p>
           </div>
         </div>
-        <div className="flex items-center gap-2 shadow-lg p-3 rounded-lg">
+        <div className="flex items-center gap-2 p-3 rounded-lg bg-white">
           <div className="bg-[#7d83de] p-3 rounded-lg">
             <i>
             <FaFlask size={35} />

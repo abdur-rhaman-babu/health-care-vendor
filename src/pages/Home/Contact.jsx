@@ -1,6 +1,6 @@
 const Contact = () => {
   return (
-    <div>
+    <div className="py-10">
       <h1 className="text-2xl font-bold my-5 text-center">
         Contact Information
       </h1>
@@ -13,7 +13,7 @@ const Contact = () => {
         </p>
       </div>
       <div className="flex items-center justify-center border rounded-lg my-5">
-        <div className="bg-white p-5 rounded-2xl shadow-lg w-full">
+        <div className="bg-white p-5 rounded-lg w-full">
           <form className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700">

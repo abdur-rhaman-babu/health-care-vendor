@@ -13,7 +13,7 @@ const DiscountProduct = () => {
   const products = medicines.filter((item) => item.discount > 0);
 
   return (
-    <div className="p-3 py-5">
+    <div className="p-3 py-5 pt-14">
       <h2 className="text-2xl font-bold mb-6 text-center">Discount Products</h2>
       <Swiper
         slidesPerView={3}
@@ -27,9 +27,9 @@ const DiscountProduct = () => {
         {products.map((product) => (
           <SwiperSlide
             key={product._id}
-            className="bg-white rounded-lg shadow-lg"
+            className="bg-white rounded-lg"
           >
-            <div className="bg-white rounded-lg border shadow-lg p-4 h-[400px]">
+            <div className="bg-white rounded-lg border p-4 h-[400px]">
               <img
                 src={product.image}
                 alt={product.item_name}

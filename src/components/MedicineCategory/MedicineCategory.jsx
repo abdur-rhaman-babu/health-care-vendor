@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const MedicineCategory = () => {
   const [categories] = useCategory();
   return (
-    <div>
+    <div className="pt-14">
       <h1 className="my-5 text-center text-2xl font-bold">Medicine Category</h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
         {categories.map((item) => (
